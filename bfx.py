@@ -5,12 +5,12 @@ def scrapBfx():
 	from bs4 import BeautifulSoup
 	from time import sleep
 	
-	print "BFXƒXƒNƒŒƒCƒsƒ“ƒOŠJŽn"
+	print "BFXã‚¹ã‚¯ãƒ¬ã‚¤ãƒ”ãƒ³ã‚°é–‹å§‹"
 	driver = webdriver.PhantomJS()
 	driver.get('https://bfxdata.com/orderbooks/btcusd')
 	html = driver.page_source
 	
-	# ƒ‰ƒYƒpƒC‚Å“®‚©‚µ‚Ä‚¢‚½‚Ì‚Åƒy[ƒW“Ç‚Ýž‚Ý‚É3•b‚­‚ç‚¢ŽžŠÔ‚ð‹ó‚¯‚½
+	# ãƒ©ã‚ºãƒ‘ã‚¤ã§å‹•ã‹ã—ã¦ã„ãŸã®ã§ãƒšãƒ¼ã‚¸èª­ã¿è¾¼ã¿ã«3ç§’ãã‚‰ã„æ™‚é–“ã‚’ç©ºã‘ãŸ
 	sleep(3)
 	soup = BeautifulSoup(html,"lxml")
 
@@ -31,7 +31,7 @@ def scrapBfx():
 	buy = float(buy)
 	total = float(total)
 	
-	# ”„ƒ{ƒŠƒ…[ƒ€, ”ƒƒ{ƒŠƒ…[ƒ€, ‡Œv	
+	# å£²ãƒœãƒªãƒ¥ãƒ¼ãƒ , è²·ãƒœãƒªãƒ¥ãƒ¼ãƒ , åˆè¨ˆ	
 	return sell,buy,total
 
 def genText():
@@ -39,20 +39,18 @@ def genText():
 	if sell == 0.0:
 		sell,buy,total = scrapBfx()
 		
-		
-	print "FLOAT•ÏŠ·Œã«"
 	print sell,buy,total
 	print "-----------"
 	if sell > buy:
 		if sell < 80:
-			strong = "‚©‚È‚è”„"
+			strong = "ã‹ãªã‚Šå£²"
 		else:
-			strong = "”„"
+			strong = "å£²"
 	else:
 		if buy < 80:
-			strong = "‚©‚È‚è”ƒ"
+			strong = "ã‹ãªã‚Šè²·"
 		else:
-			strong = "”ƒ"
+			strong = "è²·"
 	sellretio = round((sell / total), 2) * 100
 	buyretio = round((buy / total), 2) * 100
 
@@ -62,6 +60,8 @@ def genText():
 
 	sellretio = str(sellretio)
 	buyretio = str(buyretio)
-	text = ""+strong+"—D¨) SELLVOL "+sell+" ("+sellretio+"%) BUYVOL "+buy+" ("+buyretio+"%)"
+	text = ""+strong+"å„ªå‹¢) SELLVOL "+sell+" ("+sellretio+"%) BUYVOL "+buy+" ("+buyretio+"%)"
 	
-	return text
+	print text
+	
+	return
