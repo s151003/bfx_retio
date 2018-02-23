@@ -62,6 +62,6 @@ def genText():
 	buyretio = str(buyretio)
 	text = ""+strong+"優勢) SELLVOL "+sell+" ("+sellretio+"%) BUYVOL "+buy+" ("+buyretio+"%)"
 	
-	print text
-	
-	return
+	return text
+text = genText()
+print(text)
