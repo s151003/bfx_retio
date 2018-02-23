@@ -5,7 +5,7 @@ def scrapBfx():
 	from bs4 import BeautifulSoup
 	from time import sleep
 	
-	print "BFXスクレイピング開始"
+	print "はじめ"
 	driver = webdriver.PhantomJS()
 	driver.get('https://bfxdata.com/orderbooks/btcusd')
 	html = driver.page_source
