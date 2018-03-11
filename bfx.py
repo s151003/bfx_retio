@@ -63,5 +63,4 @@ def genText():
 	text = ""+strong+"優勢) SELLVOL "+sell+" ("+sellretio+"%) BUYVOL "+buy+" ("+buyretio+"%)"
 	
 	return text
-text = genText()
-print(text)
+print(genText())
